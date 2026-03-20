@@ -152,91 +152,7 @@
     font-size: 16px;
 }
 
-/* ===================== MISSION SECTION ===================== */
-.missionHeading {
-    font-size: 28px;
-    font-weight: 800;
-    color: #111;
-    text-align: center;
-    margin: 0 0 10px 0;
-    line-height: 1.4;
-}
 
-.missionSubText {
-    font-size: 14px;
-    color: #666;
-    text-align: center;
-    margin: 0 0 28px 0;
-    line-height: 1.7;
-}
-
-/* --- MISSION 2x2 GRID --- */
-.missionGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* --- MISSION CARD --- */
-.missionCard {
-    display: flex;
-    gap: 16px;
-    padding: 24px;
-    border-radius: 14px;
-    border: 1px solid #e8e8dc;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-    transition: box-shadow 0.2s ease;
-    
-}
-
-.missionCard:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-}
-
-.missionCardIcon {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom, #72721B 0%, #A4A865 100%);
-    border-radius: 10px;
-}
-
-.missionCardContent h4 {
-    font-size: 16px;
-    font-weight: 700;
-    color: #111;
-    margin: 0 0 8px 0;
-    line-height: 1.4;
-}
-
-.missionCardContent p {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.7;
-    margin: 0;
-}
-
-/* --- QUOTE CARD (bottom-right in 2x2 grid) --- */
-.quoteCard {
-    background: linear-gradient(145deg, #4a5520 0%, #5e6328 40%, #3d4218 100%);
-    border-radius: 14px;
-    padding: 36px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.quoteCard p {
-    color: #e8e8c8;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.8;
-    margin: 0;
-    text-align: center;
-}
 
 /* --- PLACEHOLDER TAB --- */
 .placeholderTab h2 {
@@ -301,17 +217,7 @@
         padding: 10px 0 16px 0;
     }
 
-    .missionGrid {
-        grid-template-columns: 1fr;
-    }
 
-    .quoteCard {
-        padding: 24px 20px;
-    }
-
-    .quoteCard p {
-        font-size: 14px;
-    }
 
     .mainHeading {
         font-size: 24px;

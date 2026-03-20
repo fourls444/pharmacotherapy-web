@@ -4,11 +4,15 @@ import CommitteeSection from "../CommitteeSection/CommitteeSection";
 import CoursesSection from "../CoursesSection/CoursesSection";
 import EmblemSection from "../EmblemSection/EmblemSection";
 import LocationSection from "../LocationSection/LocationSection";
+import ExpertiseSection from "../ExpertiseSection/ExpertiseSection";
+import VisionMissionSection from "../VisionMissionSection/VisionMissionSection";
 import styles from "./HistorySection.module.css";
 
 const MENU_ITEMS = [
     "ประวัติความเป็นมา",
+    "วิสัยทัศน์และพันธกิจ",
     "ข้อมูลหลักสูตร",
+    "สาขาความเชี่ยวชาญ",
     "คณะกรรมการบริหาร",
     "ตราสัญลักษณ์",
     "ติดต่อและสถานที่ตั้ง",
@@ -41,27 +45,7 @@ const TIMELINE_DATA = [
     },
 ];
 
-/* SVG Icons for mission cards */
-const ChartIcon = () => (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-    </svg>
-);
 
-const SearchIcon = () => (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        <line x1="11" y1="8" x2="11" y2="14" />
-        <line x1="8" y1="11" x2="14" y2="11" />
-    </svg>
-);
-
-const ChatIcon = () => (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-    </svg>
-);
 
 export default function HistorySection() {
     const [activeTab, setActiveTab] = useState(0);
@@ -71,7 +55,7 @@ export default function HistorySection() {
 
             {/* LEFT MENU */}
             <div className={styles.historyMenu}>
-                <h3>เกี่ยวกับวิทยาลัยเภสัชพันธุศาสตร์<br />และเภสัชกรรมแม่นยำ (วกพ.)</h3>
+                <h3>"ยกระดับความปลอดภัย <br />สู่มาตรฐานเภสัชพันธุศาสตร์ไทย"</h3>
 
                 <ul>
                     {MENU_ITEMS.map((item, index) => (
@@ -114,76 +98,22 @@ export default function HistorySection() {
                             ))}
                         </div>
 
-                        {/* BADGE */}
-                        <div className={styles.badgeRow}>
-                            <span className={styles.badge}>
-                                <span className={styles.badgeIcon}>◎</span>
-                                วัตถุประสงค์การจัดตั้ง
-                            </span>
-                        </div>
-
-                        {/* MISSION HEADING */}
-                        <h2 className={styles.missionHeading}>
-                            พันธกิจและบทบาทหน้าที่ (Our Mission &amp; Roles)
-                        </h2>
-                        <p className={styles.missionSubText}>
-                            วิทยาลัยฯ มุ่งมั่นที่จะเป็นกลไกหลักในการขับเคลื่อนนโยบายการแพทย์เฉพาะบุคคล (Personalized Medicine) ของประเทศ ผ่าน 3 เสาหลักสำคัญ
-                        </p>
-
-                        {/* MISSION CARDS - 2x2 GRID */}
-                        <div className={styles.missionGrid}>
-                            {/* Card 1 - top left */}
-                            <div className={styles.missionCard}>
-                                <div className={styles.missionCardIcon}>
-                                    <ChartIcon />
-                                </div>
-                                <div className={styles.missionCardContent}>
-                                    <h4>มาตรฐานวิชาการและวิชาชีพ</h4>
-                                    <p>พัฒนาหลักสูตรมาตรการฝึกอบรมและจัดการศึกษาต่อเนื่อง เพื่อสร้างเภสัชกรผู้เชี่ยวชาญที่มีสมรรถนะสูงในการใช้ข้อมูลพันธุกรรม พร้อมกำหนดมาตรฐานแนวทางปฏิบัติหน้าที่งาน (Standard Guidelines) ให้เป็นที่ยอมรับในระดับสากล</p>
-                                </div>
-                            </div>
-
-                            {/* Card 2 - top right */}
-                            <div className={styles.missionCard}>
-                                <div className={styles.missionCardIcon}>
-                                    <SearchIcon />
-                                </div>
-                                <div className={styles.missionCardContent}>
-                                    <h4>การบูรณาการในเวชปฏิบัติ</h4>
-                                    <p>ส่งเสริมการนำองค์ความรู้ทางเภสัชพันธุศาสตร์ไปใช้จริง ในสถานพยาบาล เพื่อให้เกิดการดูแลผู้ป่วยร่วมกับสหสาขาวิชาชีพ อย่างเป็นระบบ ช่วยให้การเลือกใช้ยาและขนาดของยานั้นถูกต้อง แม่นยำตามสภาพร่างกายของผู้ป่วยแต่ละราย</p>
-                                </div>
-                            </div>
-
-                            {/* Card 3 - bottom left */}
-                            <div className={styles.missionCard}>
-                                <div className={styles.missionCardIcon}>
-                                    <ChatIcon />
-                                </div>
-                                <div className={styles.missionCardContent}>
-                                    <h4>ที่ปรึกษาและเผยแพร่องค์ความรู้</h4>
-                                    <p>เป็นศูนย์กลางการให้คำปรึกษาทางวิชาการแก่หน่วยงานสาธารณสุข และเผยแพร่ข้อมูลที่ถูกต้องแก่ประชาชน เพื่อสร้างความเข้าใจ ในนวัตกรรมการใช้ยาอย่างสมเหตุผลและปลอดภัยสูงสุด</p>
-                                </div>
-                            </div>
-
-                            {/* Quote card - bottom right */}
-                            <div className={styles.quoteCard}>
-                                <p>
-                                    &quot;เรามุ่งมั่นสร้างมาตรฐานใหม่<br />
-                                    เพื่อให้ข้อมูลทางพันธุกรรมคือหัวใจสำคัญของการรักษาที่<br />
-                                    มีประสิทธิภาพและปลอดภัยสำหรับทุกคน&quot;
-                                </p>
-                            </div>
-                        </div>
+                     
+                        
                     </>
                 )}
 
-                {activeTab === 1 && <CoursesSection />}
+                {activeTab === 1 && <VisionMissionSection />}
 
-                {activeTab === 2 && <CommitteeSection />}
+                {activeTab === 2 && <CoursesSection />}
 
-                {activeTab === 3 && <EmblemSection />}
+                {activeTab === 3 && <ExpertiseSection />}
 
-                {activeTab === 4 && <LocationSection />}
+                {activeTab === 4 && <CommitteeSection />}
+
+                {activeTab === 5 && <EmblemSection />}
+
+                {activeTab === 6 && <LocationSection />}
 
             </div>
 
