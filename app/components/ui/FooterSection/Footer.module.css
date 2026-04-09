@@ -1,0 +1,103 @@
+.footer {
+    background: #f5f5f5;
+    color: #333;
+    font-size: 14px;
+}
+
+/* MAIN */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 80px;
+    gap: 60px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+}
+
+/* LEFT */
+.left {
+    flex: 1.2;
+}
+
+.left h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.left p {
+    margin: 6px 0;
+    line-height: 1.6;
+}
+
+.subTitle {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* ICONS */
+.icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.icons span {
+    width: 36px;
+    height: 36px;
+    background: #7a7a1f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* RIGHT */
+.right {
+    flex: 1;
+}
+
+.right h4 {
+    margin-bottom: 10px;
+}
+
+/* PHONE GRID */
+.phoneGrid {
+    display: flex;
+    gap: 40px;
+}
+
+.phoneGrid ul {
+    list-style: none;
+    padding: 0;
+}
+
+.phoneGrid li {
+    margin-bottom: 5px;
+}
+
+/* SERVICES */
+.services {
+    margin-top: 20px;
+}
+
+/* BOTTOM BAR */
+.bottom {
+    background: #7a7a1f;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 13px;
+}
+
+.link {
+    text-decoration: underline;
+    margin-left: 5px;
+    cursor: pointer;
+}

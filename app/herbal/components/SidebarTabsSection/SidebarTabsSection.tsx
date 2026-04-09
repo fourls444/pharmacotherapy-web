@@ -1,68 +1,57 @@
 "use client";
-import { useState } from "react";
-import CommitteeSection from "../CommitteeSection/CommitteeSection";
-import CoursesSection from "../CoursesSection/CoursesSection";
-import EmblemSection from "../EmblemSection/EmblemSection";
-import LocationSection from "../LocationSection/LocationSection";
-import ExpertiseSection from "../ExpertiseSection/ExpertiseSection";
-import VisionMissionSection from "../VisionMissionSection/VisionMissionSection";
-import styles from "./SidebarTabsSection.module.css";
-import HistorySection from "../HistorySection/HistorySection";
+import { useState, useMemo } from "react";
+import Sidebar, { MenuItem, TabId } from "./Sidebar";
 
-const MENU_ITEMS = [
-    "ประวัติความเป็นมา",
-    "วิสัยทัศน์และพันธกิจ",
-    "ข้อมูลหลักสูตร",
-    "สาขาความเชี่ยวชาญ",
-    "คณะกรรมการบริหาร",
-    "ตราสัญลักษณ์",
-    "ติดต่อและสถานที่ตั้ง",
+// นำเข้า Sections ต่างๆ จากโครงสร้างโฟลเดอร์ของคุณ
+import HistorySection from "./Tabs/HistorySection/HistorySection";
+import VisionMissionSection from "./Tabs/VisionMissionSection/VisionMissionSection";
+import CoursesSection from "./Tabs/CoursesSection/CoursesSection";
+import ExpertiseSection from "./Tabs/ExpertiseSection/ExpertiseSection";
+import CommitteeSection from "./Tabs/CommitteeSection/CommitteeSection";
+import EmblemSection from "./Tabs/EmblemSection/EmblemSection";
+import LocationSection from "./Tabs/LocationSection/LocationSection";
+
+import styles from "./SidebarTabsSection.module.css";
+
+// กำหนดข้อมูลเมนูโดยใช้ String ID แทน Index (ตัวเลข)
+const MENU_ITEMS: MenuItem[] = [
+    { id: "history", label: "ประวัติความเป็นมา" },
+    { id: "vision", label: "วิสัยทัศน์และพันธกิจ" },
+    { id: "courses", label: "ข้อมูลหลักสูตร" },
+    { id: "expertise", label: "สาขาความเชี่ยวชาญ" },
+    { id: "committee", label: "คณะกรรมการบริหาร" },
+    { id: "emblem", label: "ตราสัญลักษณ์" },
+    { id: "location", label: "ติดต่อและสถานที่ตั้ง" },
 ];
 
-
-
-
-
 export default function SidebarTabsSection() {
-    const [activeTab, setActiveTab] = useState(0);
+    // ใช้ String ID ('history') เป็นค่าเริ่มต้นแทนตัวเลข 0
+    const [activeTab, setActiveTab] = useState<TabId>("history");
+
+    // ใช้ Object Mapping จับคู่ ID กับ Component (คลีนกว่า if-else หรือ &&)
+    const tabContent: Record<TabId, React.ReactNode> = useMemo(() => ({
+        history: <HistorySection />,
+        vision: <VisionMissionSection />,
+        courses: <CoursesSection />,
+        expertise: <ExpertiseSection />,
+        committee: <CommitteeSection />,
+        emblem: <EmblemSection />,
+        location: <LocationSection />,
+    }), []);
 
     return (
         <section className={styles.historySection}>
+            
+            {/* LEFT MENU: เรียกใช้ Component ที่แยกไว้ */}
+            <Sidebar 
+                menuItems={MENU_ITEMS} 
+                activeTab={activeTab} 
+                onTabChange={setActiveTab} 
+            />
 
-            {/* LEFT MENU */}
-            <div className={styles.historyMenu}>
-                <h3>"ยกระดับสมุนไพรไทย<br></br>ด้วยมาตรฐานเภสัชกรรมระดับสากล"</h3>
-
-                <ul>
-                    {MENU_ITEMS.map((item, index) => (
-                        <li
-                            key={index}
-                            className={`${styles.menuItem} ${activeTab === index ? styles.active : ""}`}
-                            onClick={() => setActiveTab(index)}
-                        >
-                            {item}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            {/* RIGHT CONTENT */}
+            {/* RIGHT CONTENT: ดึง Component ออกมาแสดงผลตาม ID ตรงๆ */}
             <div className={styles.historyContent}>
-
-                {activeTab === 0 && <HistorySection />}
-
-                {activeTab === 1 && <VisionMissionSection />}
-
-                {activeTab === 2 && <CoursesSection />}
-
-                {activeTab === 3 && <ExpertiseSection />}
-
-                {activeTab === 4 && <CommitteeSection />}
-
-                {activeTab === 5 && <EmblemSection />}
-
-                {activeTab === 6 && <LocationSection />}
-
+                {tabContent[activeTab]}
             </div>
 
         </section>
