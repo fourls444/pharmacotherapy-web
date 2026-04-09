@@ -2,19 +2,19 @@ import styles from "./NewsSection.module.css";
 
 const NEWS_ITEMS = [
     {
-        image: "/images/section4/Container1.png",
+        image: "/images/news/Container1.png",
         title: "วภพ. จัดอบรมเชิงปฏิบัติการ: พัฒนาสูตรยาจากกัญชาทางการแพทย์",
         description:
             "โครงการพัฒนาเภสัชกร: การใช้ยาชีววัตถุอย่างมีประสิทธิภาพ",
     },
     {
-        image: "/images/section4/Container2.png",
+        image: "/images/news/Container2.png",
         title: "วภพ. เปิดรับสมัคร: หลักสูตรการตลาดผลิตภัณฑ์สมุนไพร ปี 72",
         description:
             "อบรม 12 สัปดาห์: การให้คำปรึกษาด้านการใช้กัญชาทางการแพทย์",
     },
     {
-        image: "/images/section4/Container3.png",
+        image: "/images/news/Container3.png",
         title: "วภพ. จัดสัมมนา: ยกระดับมาตรฐานยาสมุนไพรไทยสู่สากล",
         description:
             "อบรมระยะสั้น 16 สัปดาห์: การใช้เทคโนโลยี AI ในการดูแลผู้ป่วย",
@@ -36,7 +36,7 @@ export default function NewsSection() {
 
                 <div className={styles.featuredCard}>
                     <div className={styles.featuredImage}>
-                        <img src="/images/section4/img.png" alt="featured" />
+                        <img src="/images/news/img.png" alt="featured" />
                     </div>
                     <div className={styles.featuredContent}>
                         <div className={styles.tagOlive}>ข่าวประชาสัมพันธ์</div>
